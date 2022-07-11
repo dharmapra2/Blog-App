@@ -5,6 +5,7 @@ scalar DateTime
 type Query {
     users: [User!]! @all
     userById(userId: ID @eq): User @find
+    login(name: String! @eq, password: String! @eq): User @find
     posts: [Post!]! @all
     postById(postId: ID @eq): Post @find
 }
@@ -14,7 +15,7 @@ type Mutation {
     updateUser(userId: ID!, name: String!): User @update
     deleteUser(userId: ID!): User @delete
     "------------------Post-------------"
-    createPost(title: String!, description: String!,userId:ID!): Post @create
+    createPost(title: String!, description: String!, userId: ID!): Post @create
     updatePost(postId: ID, title: String, description: String): Post @update
     deletePost(postId: ID!): Post @delete
 }
